@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Portfolio content (profile, skills, services, process steps, projects, education) lives in `src/data/portfolio.ts`; components only render it — edit data there, not in JSX.
+- The portfolio is one long scrolling page at `/` with section anchors, because the brief asks for smooth-scroll navigation between sections.
+- Dark is the default theme on `:root`; the `.light` class on `<html>` (set from localStorage by a head script) switches palettes, so new colors need both values.
+- Contact form submissions go through the `submitContactMessage` server function, validated with the shared zod schema in `src/lib/contact-schema.ts`, and are stored in `contact_messages` (insert-only for visitors).
