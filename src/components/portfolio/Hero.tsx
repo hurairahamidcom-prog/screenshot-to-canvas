@@ -1,9 +1,47 @@
 import { ArrowRight, Github, Mail, Sparkles } from "lucide-react";
 
 import { profile } from "@/data/portfolio";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Particles } from "./Particles";
 import { TypingText } from "./TypingText";
+
+function ProfileVisual({ className }: { className?: string }) {
+  return (
+    <div className={cn("relative mx-auto w-full animate-in fade-in zoom-in-95 duration-1000", className)}>
+      <div
+        className="pointer-events-none absolute -inset-4 animate-spin-slow rounded-full border border-dashed border-primary/30 lg:-inset-6"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -inset-8 rounded-full border border-primary/10 lg:-inset-12"
+        aria-hidden
+      />
+      <div className="relative aspect-square animate-float overflow-hidden rounded-full bg-gradient-primary p-[3px] shadow-glow-lg">
+        <div className="h-full w-full overflow-hidden rounded-full bg-surface">
+          {profile.photo ? (
+            <img src={profile.photo} alt={profile.name} className="h-full w-full object-cover object-top" />
+          ) : (
+            <div className="bg-grid relative grid h-full w-full place-items-center">
+              <span className="text-gradient text-glow font-display text-8xl font-extrabold">HH</span>
+              <span className="absolute bottom-[18%] font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
+                Your photo here
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+      <div className="glass absolute -left-4 top-6 rounded-2xl px-3 py-2 shadow-glow sm:-left-10 sm:top-10 sm:px-4 sm:py-3">
+        <p className="font-mono text-xs text-muted-foreground">{"<role>"}</p>
+        <p className="text-sm font-semibold text-heading">Software Engineer</p>
+      </div>
+      <div className="glass absolute -right-2 bottom-4 rounded-2xl px-3 py-2 shadow-glow sm:-right-8 sm:bottom-8 sm:px-4 sm:py-3">
+        <p className="font-mono text-xs text-muted-foreground">{"<stack>"}</p>
+        <p className="text-sm font-semibold text-heading">React · Tailwind</p>
+      </div>
+    </div>
+  );
+}
 
 export function Hero() {
   return (
@@ -30,6 +68,8 @@ export function Hero() {
           <p className="mt-5 font-display text-2xl font-semibold text-heading sm:text-3xl">
             <TypingText words={profile.roles} />
           </p>
+
+          <ProfileVisual className="my-10 max-w-[240px] sm:max-w-[280px] lg:hidden" />
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">{profile.intro}</p>
 
@@ -63,36 +103,16 @@ export function Hero() {
             >
               <Mail className="h-4 w-4" />
             </a>
-            <span className="font-mono">{profile.website}</span>
+            <a
+              href={`mailto:${profile.email}`}
+              className="font-mono break-all transition-colors hover:text-primary"
+            >
+              {profile.email}
+            </a>
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-sm animate-in fade-in zoom-in-95 duration-1000">
-          <div className="absolute -inset-6 animate-spin-slow rounded-full border border-dashed border-primary/30" aria-hidden />
-          <div className="absolute -inset-12 rounded-full border border-primary/10" aria-hidden />
-          <div className="relative aspect-square animate-float overflow-hidden rounded-full bg-gradient-primary p-[3px] shadow-glow-lg">
-            <div className="h-full w-full overflow-hidden rounded-full bg-surface">
-              {profile.photo ? (
-                <img src={profile.photo} alt={profile.name} className="h-full w-full object-cover" />
-              ) : (
-                <div className="bg-grid relative grid h-full w-full place-items-center">
-                  <span className="text-gradient text-glow font-display text-8xl font-extrabold">HH</span>
-                  <span className="absolute bottom-[18%] font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                    Your photo here
-                  </span>
-                </div>
-              )}
-            </div>
-          </div>
-          <div className="glass absolute -left-4 top-10 rounded-2xl px-4 py-3 shadow-glow sm:-left-10">
-            <p className="font-mono text-xs text-muted-foreground">{"<role>"}</p>
-            <p className="text-sm font-semibold text-heading">Software Engineer</p>
-          </div>
-          <div className="glass absolute -right-2 bottom-8 rounded-2xl px-4 py-3 shadow-glow sm:-right-8">
-            <p className="font-mono text-xs text-muted-foreground">{"<stack>"}</p>
-            <p className="text-sm font-semibold text-heading">React · Tailwind</p>
-          </div>
-        </div>
+        <ProfileVisual className="hidden max-w-sm lg:block" />
       </div>
 
       <a

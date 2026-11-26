@@ -48,9 +48,13 @@ export function Navbar() {
           scrolled ? "glass shadow-glow" : "border border-transparent",
         )}
       >
-        <a href="#home" className="group flex items-center gap-2 font-display text-xl font-bold text-heading">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-primary font-mono text-sm text-primary-foreground shadow-glow transition-transform duration-300 group-hover:rotate-6">
-            H
+        <a href="#home" className="group flex items-center gap-2.5 font-display text-xl font-bold text-heading">
+          <span className="grid h-9 w-9 place-items-center overflow-hidden rounded-full bg-gradient-primary p-[2px] font-mono text-sm text-primary-foreground shadow-glow transition-transform duration-300 group-hover:rotate-6">
+            {profile.photo ? (
+              <img src={profile.photo} alt={profile.name} className="h-full w-full rounded-full object-cover object-top" />
+            ) : (
+              "H"
+            )}
           </span>
           <span>
             {profile.firstName}

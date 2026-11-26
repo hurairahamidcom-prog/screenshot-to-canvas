@@ -9,7 +9,7 @@ export function Skills() {
         <SectionHeading
           eyebrow="Toolkit"
           title="My Technical Skills"
-          description="The languages, frameworks and tools I use to design, build and analyse."
+          description="The languages, frameworks and tools I use to design and build."
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((cat, i) => {

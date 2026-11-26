@@ -1,11 +1,9 @@
 import type { LucideIcon } from "lucide-react";
 import {
-  BarChart3,
   Code2,
   Compass,
   Database,
   LayoutDashboard,
-  LineChart,
   Monitor,
   PenTool,
   Rocket,
@@ -17,7 +15,7 @@ import {
   Layers,
   Terminal,
 } from "lucide-react";
-
+import profileImg from "@/assets/projects/profile.jpeg";
 import portfolioImg from "@/assets/projects/portfolio.webp";
 import dashboardImg from "@/assets/projects/dashboard.webp";
 import calculatorImg from "@/assets/projects/calculator.webp";
@@ -39,8 +37,8 @@ export const profile = {
   github: "https://github.com/hurairahamidcom-prog",
   githubHandle: "hurairahamidcom-prog",
   /** Replace with an imported image (e.g. import photo from "@/assets/me.jpg") to show your photo. */
-  photo: null as string | null,
-  roles: ["Software Engineer", "Web Developer", "Frontend Developer", "Data Analyst"],
+  photo: profileImg as string | null,
+  roles: ["Software Engineer", "Web Developer", "Frontend Developer"],
   intro:
     "I'm a passionate Software Engineer and Web Developer who enjoys building modern, responsive, and user-friendly websites. I love turning creative ideas into functional digital experiences and continuously improving my technical skills.",
 };
@@ -72,8 +70,8 @@ export const about = {
 /* Factual stats only — counts come straight from the content on this site. */
 export const stats = [
   { value: "8", label: "Projects showcased" },
-  { value: "5", label: "Skill categories" },
-  { value: "8", label: "Services offered" },
+  { value: "4", label: "Skill categories" },
+  { value: "7", label: "Services offered" },
   { value: "BS", label: "Software Engineering" },
 ];
 
@@ -105,11 +103,6 @@ export const skillCategories: SkillCategory[] = [
     skills: ["SQL", "Database Fundamentals", "Data Management"],
   },
   {
-    title: "Data Analysis",
-    icon: BarChart3,
-    skills: ["Data Analysis", "Data Visualization", "Microsoft Excel", "Data Interpretation", "Dashboard Development"],
-  },
-  {
     title: "Tools & Technologies",
     icon: Terminal,
     skills: ["Git", "GitHub", "VS Code", "npm", "Vercel", "Chrome DevTools", "Microsoft Office"],
@@ -123,7 +116,6 @@ export const services: { title: string; icon: LucideIcon; description: string }[
   { title: "Responsive Website Design", icon: Smartphone, description: "Layouts that look and work great on phones, tablets, laptops and desktops." },
   { title: "React Development", icon: Atom, description: "Interactive single-page apps with React, hooks and a component-driven structure." },
   { title: "Website Maintenance", icon: Wrench, description: "Updates, fixes and improvements that keep your site secure, fast and current." },
-  { title: "Data Analysis", icon: LineChart, description: "Cleaning and exploring data to find the trends and answers that matter." },
   { title: "Dashboard Development", icon: LayoutDashboard, description: "Clear dashboards that turn raw numbers into visuals you can act on." },
   { title: "UI Implementation", icon: PenTool, description: "Turning designs into pixel-accurate, accessible and responsive pages." },
 ];
@@ -155,7 +147,7 @@ export const projects: Project[] = [
     tags: ["HTML", "CSS", "JavaScript"],
     image: portfolioImg,
     liveUrl: null,
-    githubUrl: null,
+    githubUrl: "https://github.com/hurairahamidcom-prog/screenshot-to-canvas",
   },
   {
     title: "Data Analysis Dashboard",
