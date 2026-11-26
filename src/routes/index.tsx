@@ -7,6 +7,7 @@ import { BackToTop, CursorGlow, ScrollProgress } from "@/components/portfolio/Ef
 import { Footer } from "@/components/portfolio/Footer";
 import { Hero } from "@/components/portfolio/Hero";
 import { Navbar } from "@/components/portfolio/Navbar";
+import { PortfolioChatbot } from "@/components/portfolio/PortfolioChatbot";
 import { Process } from "@/components/portfolio/Process";
 import { Projects } from "@/components/portfolio/Projects";
 import { Services } from "@/components/portfolio/Services";
@@ -47,6 +48,7 @@ function Index() {
         <Contact />
       </main>
       <Footer />
+      <PortfolioChatbot />
       <BackToTop />
     </div>
   );
